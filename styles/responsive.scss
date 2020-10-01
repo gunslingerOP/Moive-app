@@ -19,11 +19,14 @@
   }
   .deck img {
     height: 80%;
-    width: 25vw;
+    width: 25vw !important;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     -webkit-object-fit: fill;
     object-fit: fill;
+  }
+  .under{
+    width: 25vw !important;
   }
   .deck{
     grid-gap:2%;
@@ -42,11 +45,14 @@
   }
   .deck img {
     height: 80%;
-    width: 33vw;
+    width: 33vw !important;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     -webkit-object-fit: fill;
     object-fit: fill;
+  }
+  .under{
+    width: 33vw !important;
   }
   .deck{
     grid-gap:3%;
@@ -80,6 +86,7 @@
         height: 50%;
         width: 30%;
       }
+      
       .deck{
         grid-gap:3%;
     }
@@ -94,13 +101,16 @@
       }
       .deck img {
         height: 75%;
-        width: 39vw;
+        width: 39vw !important;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         -webkit-object-fit: fill;
         object-fit: fill;
       }
-
+      .under{
+        width: 39vw !important;
+        height: 5.5% !important;
+      }
       .hed .container {
         margin: auto;
         width: 90%;
@@ -135,4 +145,10 @@
         height: 100vh;
       }
     }
+}
+
+@media only screen and(max-width:400px){
+  .under{
+    height: 7% !important;
+  }
 }
