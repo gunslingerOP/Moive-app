@@ -1,65 +1,57 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useEffect, useState } from "react";
+import { Layout, Input, Button, Carousel } from "antd";
+const { Search } = Input;
+const { Header, Content, Footer } = Layout;
 
-export default function Home() {
+
+import Cardztop from "../components/cardz-top";
+import Cardzpop from "../components/cardz-pop";
+import Cardzup from "../components/cardz-upcom";
+import Head from "../components/head";
+import Caro from "../components/carI";
+const Home = ({ post, genre, popular, upcom }) => {
+  
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="big">
+      <section className="first">
+        <Head />
+      </section>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <section className="cover">
+        <Caro post={post} genre={genre} />
+      </section>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <section className="cards">
+        <Cardztop popular={popular} />
+        <Cardzpop post={post} />
+        <Cardzup upcom={upcom} />
+      </section>
     </div>
-  )
+  );
+};
+export default Home;
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://api.themoviedb.org/3/movie/popular?api_key=209171add0af96727d74a331959497ad&language=en-US&page=1"
+  );
+  const post = await res.json();
+
+  const gen = await fetch(
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=209171add0af96727d74a331959497ad&language=en-US"
+  );
+  const genre = await gen.json();
+
+  const pop = await fetch(
+    "https://api.themoviedb.org/3/movie/top_rated?api_key=209171add0af96727d74a331959497ad&language=en-US&page=1"
+  );
+  const popular = await pop.json();
+
+  const up = await fetch(
+    "https://api.themoviedb.org/3/movie/upcoming?api_key=209171add0af96727d74a331959497ad&language=en-US&page=1"
+  );
+  const upcom = await up.json();
+
+  // Pass post data to the page via props
+  return { props: { post, genre, popular, upcom } };
 }

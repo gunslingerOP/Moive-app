@@ -1,0 +1,138 @@
+@media only screen and (max-width: 1120px) {
+  .pic {
+    img {
+      width: 25%;
+    }
+  }
+
+  .title {
+    font-size: 80%;
+  }
+
+  .hed .container span {
+    margin-right: 1%;
+    height: 50%;
+    width: 25%;
+  }
+  .deck {
+    overflow-y: hidden;
+  }
+  .deck img {
+    height: 80%;
+    width: 25vw;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -webkit-object-fit: fill;
+    object-fit: fill;
+  }
+  .deck{
+    grid-gap:2%;
+}
+.desc{
+  top:30%;
+}
+}
+
+@media only screen and (max-width: 650px) {
+  .pic {
+    img {
+      width: 30%;
+      height: 70%;
+    }
+  }
+  .deck img {
+    height: 80%;
+    width: 33vw;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -webkit-object-fit: fill;
+    object-fit: fill;
+  }
+  .deck{
+    grid-gap:3%;
+}
+
+
+.desc{
+  top:30%;
+}
+}
+
+@media only screen and (max-width: 610px) {
+
+    .pic {
+        img {
+          opacity: 0 !important;
+          width: 10px;
+          height: 0px;
+        }
+      }
+      .test img {
+        width: 100%;
+        position: relative;
+        -webkit-object-fit: cover;
+        object-fit: cover;
+        height: 80vh;
+        opacity: 0.5;
+    }
+    .hed .container span {
+        margin-right: 1%;
+        height: 50%;
+        width: 30%;
+      }
+      .deck{
+        grid-gap:3%;
+    }
+}
+
+@media only screen and (max-width:470px){
+
+    .hed .container span {
+        margin-right: 1%;
+        height: 50%;
+        width: 38%;
+      }
+      .deck img {
+        height: 75%;
+        width: 39vw;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        -webkit-object-fit: fill;
+        object-fit: fill;
+      }
+
+      .hed .container {
+        margin: auto;
+        width: 90%;
+        height: 9vh;
+        background-color: #182131;
+        -moz-box-align: center;
+        align-items: center;
+        display: -moz-box;
+        display: flex;
+        -moz-box-pack: justify;
+        justify-content: space-between;
+    }
+    .hed .container span {
+        margin-right: 1%;
+        height: 70%;
+        width: 46%;
+        font-size: 15px;
+    }
+    .ant-input-search .ant-input {
+        color: rgba(255, 255, 255, 0.521);
+        font-size: 14px;
+        background-color: #413c3c !important;
+    }
+    .deck{
+        grid-gap:5%;
+    }
+    .desc{
+      font-size: 100%;
+    }
+    .poster{
+      img{
+        height: 100vh;
+      }
+    }
+}
